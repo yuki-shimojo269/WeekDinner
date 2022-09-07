@@ -41,7 +41,6 @@ go get -u golang.org/x/oauth2/google
 
 ## 2.GoogleカレンダーAPI
 google cloud platformの[URL](https://console.cloud.google.com/)
-[参考](https://www.coppla-note.net/posts/tutorial/google-calendar-api/)
 
 1. プロジェクトを作成する [参考](https://www.coppla-note.net/posts/tutorial/google-calendar-api/#%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90)
 2. Calender APIを有効化 [参考](https://www.coppla-note.net/posts/tutorial/google-calendar-api/#calendar-api-%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96)
