@@ -3,7 +3,7 @@
 https://calendar.google.com/calendar/u/0?cid=cnFkMGNrY2JoaDBubjhwcTBqbGc4YXZmOTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
 
 # 機能一覧
-- [Kurasiru](https://www.kurashiru.com/)から「おかず」で検索したレシピをスクレイピング
+- [Kurasiru](https://www.kurashiru.com/)から「おかず」で検索したレシピをwebスクレイピング
 - 日曜日に一週間の献立とその材料を一覧でリストアップ
 - Googleカレンダーに記録する
 
