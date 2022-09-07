@@ -1,4 +1,6 @@
 # 自動で一週間の献立を決めてくれるwebアプリ
+やる気があったら動いているカレンダー  
+https://calendar.google.com/calendar/u/0?cid=cnFkMGNrY2JoaDBubjhwcTBqbGc4YXZmOTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
 
 # 機能一覧
 - Kurasiruからレシピをスクレイピング
