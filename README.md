@@ -5,7 +5,7 @@ https://calendar.google.com/calendar/u/0?cid=cnFkMGNrY2JoaDBubjhwcTBqbGc4YXZmOTB
 # 機能一覧
 - [Kurasiru](https://www.kurashiru.com/)から「おかず」で検索したレシピをwebスクレイピング
 - 日曜日に一週間の献立とその材料を一覧でリストアップ
-- Googleカレンダーに予定として追加(デフォルトでは月火水の17:00~18:00)
+- Googleカレンダーに予定として追加(デフォルトでは月曜日の17:00~18:00)
 - Googleカレンダーに予定を編集(曜日の変更)
 
 # 開発OS
