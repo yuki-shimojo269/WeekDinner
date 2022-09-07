@@ -89,7 +89,6 @@ func createEventData_fromDb(event_num int, date_list []int)[]GoolgeCalendar{
       }
       Ingredient = Ingredient + FoodData[i].Food_amount_type + "\n"
     }
-    fmt.Println(Ingredient)
 
     eventdata.Recipe_id = data_list[i].Data_id
     eventdata.Recipe_name = data_list[i].Recipe_name

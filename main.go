@@ -164,9 +164,12 @@ func main() {
     web_data := InitData()
 
     jobrunner.Start()
-    // jobrunner.Schedule("*/1 * * * *", MonthJob{})
+    // 毎月の１日の３時にレシピ一覧を取得
+    jobrunner.Schedule("0 3 1 * *", MonthJob{})
     // "0 3 1 * *"
-    jobrunner.Schedule("*/1 * * * *", WeekJob{})
+
+    // 毎週月曜日の2時(日曜日の26時)にその週の夕飯を決める
+    jobrunner.Schedule("0 2 * * Mon", WeekJob{})
     // "0 2 * * Mon"
 
 
