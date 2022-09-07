@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <h1>来週の予定</h1>
+      <ul>
+        {{range .eventtime}}
+        <li>{{.}}</li>
+        {{end}}
+      </ul>
+    <!-- 来週の予定 -->
+    <form action="/" method="POST">
+      <input type="checkbox" name="Weeks[]" id="SUN" value="Sunday"><label for="SUN">日曜日</label>
+      <input type="checkbox" name="Weeks[]" id="MON" value="Monday"><label for="MON">月曜日</label>
+      <input type="checkbox" name="Weeks[]" id="TUE" value="Tuesday"><label for="TUE">火曜日</label>
+      <input type="checkbox" name="Weeks[]" id="WED" value="Wednesday"><label for="WED">水曜日</label>
+      <input type="checkbox" name="Weeks[]" id="THU" value="Thursday"><label for="THU">木曜日</label>
+      <input type="checkbox" name="Weeks[]" id="FRI" value="Friday"><label for="FRI">金曜日</label>
+      <input type="checkbox" name="Weeks[]" id="SAT" value="Saturday"><label for="SAT">土曜日</label>
+      <br>
+      <input type="submit">
+    </form>
+  </body>
+</html>
