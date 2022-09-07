@@ -13,18 +13,18 @@ Ubuntu-20.04 LTS (windows10 WSL)
 2. GCP(Google Cloud Platform)の設定
 3. main.goを編集し実行
 
-# 1 各種ソフトをインストール
-## golangをインストール
+## 1 各種ソフトをインストール
+### golangをインストール
 ```
 $ sudo add-apt-repository ppa:longsleep/golang-backports  
 $ sudo apt update  
 $ sudo apt install golang  
 ```
-## sqlite3をインストール
+### sqlite3をインストール
 ```
 $ sudo apt install sqlite3  
 ```
-## golang のパッケージをインストール
+### golang のパッケージをインストール
 ```
 go get github.com/PuerkitoBio/goquery
 
@@ -39,7 +39,7 @@ go get -u google.golang.org/api/calendar/v3
 go get -u golang.org/x/oauth2/google
 ```
 
-# 2.GoogleカレンダーAPI
+## 2.GoogleカレンダーAPI
 google cloud platformのURL
 https://console.cloud.google.com/
 参考になるサイト
@@ -51,7 +51,7 @@ https://www.coppla-note.net/posts/tutorial/google-calendar-api/
 4. ダウンロードしたjsonを直下に置く(別に直下である必要はないが、pathを考えるとめんどい)
 5. Googleカレンダーにサービスアカウントを使えるようにする。この時に「カレンダーID」をメモしておく[ここ](https://www.coppla-note.net/posts/tutorial/google-calendar-api/#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%92%E5%85%B1%E6%9C%89%E3%81%99%E3%82%8B)
 
-# 3 main.goを編集し実行
+## 3 main.goを編集し実行
 1. main.goの18~21行目を編集する
 ```
 const(
