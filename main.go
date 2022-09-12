@@ -8,6 +8,7 @@ import (
   "os"
   "strings"
   "io/ioutil"
+  _ "time"
 
   "github.com/bamzi/jobrunner"
   "github.com/gin-gonic/gin"
@@ -118,7 +119,7 @@ func InitData()WebDataForm{
 
   var web_data WebDataForm
   web_data.File_path = filepath.Join("data", "NextWeeks.txt")
-  web_data.Weeks = append(web_data.Weeks, "Monday")
+  web_data.Weeks = append(web_data.Weeks, "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
   web_data.Write()
   web_data.Read()
 
@@ -168,9 +169,9 @@ func main() {
     jobrunner.Schedule("0 3 1 * *", MonthJob{})
     // "0 3 1 * *"
 
-    // 毎週月曜日の2時(日曜日の26時)にその週の夕飯を決める
-    jobrunner.Schedule("0 2 * * Mon", WeekJob{})
-    // "0 2 * * Mon"
+    // 毎週土曜日の2時にその週の夕飯を決める
+    jobrunner.Schedule("0 2 * * SAT", WeekJob{})
+    // "0 3 * * SAT"
 
 
 
