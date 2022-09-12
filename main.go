@@ -8,6 +8,7 @@ import (
   "os"
   "strings"
   "io/ioutil"
+  _ "time"
 
   "github.com/bamzi/jobrunner"
   "github.com/gin-gonic/gin"
@@ -76,11 +77,11 @@ type WeekJob struct{
 }
 func (e WeekJob) Run() {
     fmt.Println("Run Week Job!")
-    CreateMenueThisWeekdDB()
+    CreateMenueThisWeekdDB(false)
     fmt.Println("Fin Week Job!")
 }
 
-func CreateMenueThisWeekdDB() {
+func CreateMenueThisWeekdDB(is_init bool) {
   weeks, err := ioutil.ReadFile(filepath.Join("data", "NextWeeks.txt"))
   if err != nil{
     fmt.Println(err)
@@ -94,12 +95,12 @@ func CreateMenueThisWeekdDB() {
   date_length := len(date_list)
 
 
-  week_menue.Choice_RandomMenue(date_length)
+  week_menue.Choice_RandomMenue(date_length, is_init)
   /*
   Monday,Wednesday
   に入力する
   */
-  week_menue.AddEvent(date_length, date_list, json_file, calendar_id)
+  week_menue.AddEvent(date_length, date_list, json_file, calendar_id, is_init)
 }
 // ------------------------------
 
@@ -118,7 +119,7 @@ func InitData()WebDataForm{
 
   var web_data WebDataForm
   web_data.File_path = filepath.Join("data", "NextWeeks.txt")
-  web_data.Weeks = append(web_data.Weeks, "Monday")
+  web_data.Weeks = append(web_data.Weeks, "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
   web_data.Write()
   web_data.Read()
 
@@ -126,7 +127,7 @@ func InitData()WebDataForm{
   UpdateRecipeNameDB("おかず")
   fmt.Println("Fin Month Job!")
   fmt.Println("Run Week Job!")
-  CreateMenueThisWeekdDB()
+  CreateMenueThisWeekdDB(true)
   fmt.Println("Fin Week Job!")
 
   return web_data
@@ -168,9 +169,9 @@ func main() {
     jobrunner.Schedule("0 3 1 * *", MonthJob{})
     // "0 3 1 * *"
 
-    // 毎週月曜日の2時(日曜日の26時)にその週の夕飯を決める
-    jobrunner.Schedule("0 2 * * Mon", WeekJob{})
-    // "0 2 * * Mon"
+    // 毎週土曜日の2時にその週の夕飯を決める
+    jobrunner.Schedule("0 2 * * SAT", WeekJob{})
+    // "0 3 * * SAT"
 
 
 
