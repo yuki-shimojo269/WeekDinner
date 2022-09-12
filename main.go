@@ -77,11 +77,11 @@ type WeekJob struct{
 }
 func (e WeekJob) Run() {
     fmt.Println("Run Week Job!")
-    CreateMenueThisWeekdDB()
+    CreateMenueThisWeekdDB(false)
     fmt.Println("Fin Week Job!")
 }
 
-func CreateMenueThisWeekdDB() {
+func CreateMenueThisWeekdDB(is_init bool) {
   weeks, err := ioutil.ReadFile(filepath.Join("data", "NextWeeks.txt"))
   if err != nil{
     fmt.Println(err)
@@ -95,7 +95,7 @@ func CreateMenueThisWeekdDB() {
   date_length := len(date_list)
 
 
-  week_menue.Choice_RandomMenue(date_length)
+  week_menue.Choice_RandomMenue(date_length, FuncInitArg{IsInit: is_init})
   /*
   Monday,Wednesday
   に入力する
@@ -127,7 +127,7 @@ func InitData()WebDataForm{
   UpdateRecipeNameDB("おかず")
   fmt.Println("Fin Month Job!")
   fmt.Println("Run Week Job!")
-  CreateMenueThisWeekdDB()
+  CreateMenueThisWeekdDB(true)
   fmt.Println("Fin Week Job!")
 
   return web_data
