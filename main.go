@@ -95,12 +95,12 @@ func CreateMenueThisWeekdDB(is_init bool) {
   date_length := len(date_list)
 
 
-  week_menue.Choice_RandomMenue(date_length, FuncInitArg{IsInit: is_init})
+  week_menue.Choice_RandomMenue(date_length, is_init)
   /*
   Monday,Wednesday
   に入力する
   */
-  week_menue.AddEvent(date_length, date_list, json_file, calendar_id)
+  week_menue.AddEvent(date_length, date_list, json_file, calendar_id, is_init)
 }
 // ------------------------------
 

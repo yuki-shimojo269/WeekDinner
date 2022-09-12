@@ -18,7 +18,7 @@ import (
 
 // 実質main----------------------------------------------
 //ランダムでレシピを取り出す
-func Choice_RandomMenue(choice_num int, arg *FuncInitArg)  {
+func Choice_RandomMenue(choice_num int, is_init bool)  {
 	rand.Seed(time.Now().UnixNano())
 
 	db_path := filepath.Join("data", "Recipe.db")
@@ -68,7 +68,7 @@ func Choice_RandomMenue(choice_num int, arg *FuncInitArg)  {
 		}
 
 	// 一週間分のメニューを作成
-	Create_week_menu(random_ID_list, &GreetOpts)
+	Create_week_menu(random_ID_list, is_init)
 }
 // --------------------------------------------------------------
 
@@ -115,15 +115,10 @@ func Create_RecipeDB(recipe_id int64, food_data [][]string)  {
 }
 
 
-func Create_week_menu(recipe_id_list []int64, arg *FuncInitArg){
-	is_init := false
-	if arg.IsInit != nil {
-		is_init = arg.IsInit
-	}
-
-	Week_count := 0
+func Create_week_menu(recipe_id_list []int64, is_init bool){
+	Week_count := 7
 	if is_init{
-		Week_count = 7
+		Week_count = 0
 	}
 	// 日付の初期化----------------------
 	// 稼働した週の月曜日を返す

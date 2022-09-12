@@ -40,12 +40,16 @@ func createEvent(data GoolgeCalendar) *calendar.Event {
     return event
 }
 
-func createEventData_fromDb(event_num int, date_list []int)[]GoolgeCalendar{
+func createEventData_fromDb(event_num int, date_list []int, is_init bool)[]GoolgeCalendar{
+  Week_count := 7
+	if is_init{
+		Week_count = 0
+	}
   // 日付の初期化----------------------
 	// 稼働した週の月曜日を返す
 	const DateFormat = "2006-01-02"
 	now_time := time.Now()
-	Sunday := now_time.AddDate(0, 0, -1*int(now_time.Weekday()))
+	Sunday := now_time.AddDate(0, 0, Week_count-1*int(now_time.Weekday()))
 	Sunday_day := strings.Replace(Sunday.Format(DateFormat), "-", "", -1)
 	// ----------------------------------
 
@@ -101,9 +105,9 @@ func createEventData_fromDb(event_num int, date_list []int)[]GoolgeCalendar{
   return eventdata_list
 }
 
-func AddEvent(event_num int, date_list []int, json_file string, calendar_id string) (err error){
+func AddEvent(event_num int, date_list []int, json_file string, calendar_id string, is_init bool) (err error){
   // イベントを作成^^^^^^^^^^^^^^^^^
-  eventdata_list := createEventData_fromDb(event_num, date_list)
+  eventdata_list := createEventData_fromDb(event_num, date_list, is_init)
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   // 初期化=========================
